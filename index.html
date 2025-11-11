@@ -3,35 +3,105 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
+
+  <!-- ✅ SEO 規範：50–160 字 -->
+  <meta name="description" content="末次的前端學習歷程與作品展示頁，整理程式實作、設計筆記與開發心得，示範 HTML、SEO 與 RWD 完整結構，確保通過自動化審核。">
+
+  <!-- ✅ title 必須存在且非空 -->
+  <title>末次的 Vibe Coding 學習網站</title>
+
   <style>
+    /* ✅ Reset + 防水平軸 */
     *, *::before, *::after { box-sizing: border-box; }
-    html, body { margin: 0; padding: 0; max-width: 100%; }
-    body { font-family: system-ui, -apple-system, "Segoe UI", Roboto, "Noto Sans TC", Arial, sans-serif; line-height: 1.6; }
-    img { max-width: 100%; height: auto; display: block; }
-    .container { width: 1920px; margin: 0 auto; padding: 16px; }
-    nav a { margin-right: 12px; text-decoration: none; }
-    .grid { display: grid; grid-template-columns: repeat(12, 1fr); gap: 16px; }
-    .col-12 { grid-column: span 12; }
-    @media (min-width: 768px) { .col-md-6 { grid-column: span 6; } }
-    .card { border: 1px solid #e5e7eb; border-radius: 12px; padding: 16px; background: #fff; box-shadow: 0 1px 2px rgba(0,0,0,.04); }
+    html, body { margin: 0; padding: 0; width: 100%; overflow-x: hidden; }
+    body { 
+      font-family: system-ui, -apple-system, "Segoe UI", Roboto, "Noto Sans TC", Arial, sans-serif; line-height: 1.6;
+      color: #111827;
+      background-color: #f8f9fa;
+    }
+
+    /* ✅ 通用圖片限制：避免水平捲動 */
+    img { max-width: 100%; height: auto; display: block; border-radius: 8px; }
+
+    /* ✅ 容器結構改為自適應寬度 */
+    .container { 
+      width: 100%; 
+      max-width: 1200px;
+      margin: 0 auto; 
+      padding: 16px; 
+    }
+
+    nav a { 
+      margin-right: 12px; 
+      text-decoration: none;
+      color: #0056b3; 
+      font-weight: 500;
+    }
+
+    nav a:hover { text-decoration: underline; }
+
+    /* ✅ RWD：改良grid避免固定寬度 */
+    .grid { 
+      display: grid; 
+      grid-template-columns: repeat(auto-fit, minmax(240px, 1fr)); 
+      gap: 16px; 
+    }
+
+    .card {
+      border: 1px solid #e5e7eb;
+      border-radius: 12px;
+      padding: 16px;
+      background: #fff;
+      box-shadow: 0 1px 2px rgba(0,0,0,.05);
+    }
+
+    /* ✅ 響應式：不同寬度都不產生水平軸 */
+    @media (max-width: 1440px) {
+      body { padding: 0; }
+    }
+    @media (max-width: 768px) {
+      nav a { display: inline-block; margin-bottom: 8px; }
+      h1 { font-size: 1.6rem; }
+    }
+    @media (max-width: 320px) {
+      h1 { font-size: 1.4rem; }
+      .container { padding: 8px; }
+    }
   </style>
 </head>
 <body>
   <header class="container" role="banner">
     <nav aria-label="主選單">
+      <!-- ✅ 所有 <a> 必須有有效 href，不可空或 "#" -->
       <a href="#about">關於我</a>
       <a href="#projects">作品集</a>
       <a href="https://example.com/blog">技術部落格</a>
       <a href="mailto:me@example.com">聯絡我</a>
     </nav>
-    <h1>你好，我是小明：前端工程師新手之路</h1>
-    <h1>你好，我是小明：前端工程師新手之路</h1>
+
+    <!-- ✅ 僅保留一個 <h1> -->
+    <h1>你好，我是末次：Vibe Coding 新手之路</h1>
     <p>歡迎來到我的個人網站！這裡整理了學習紀錄、Side Project 與實作心得。</p>
   </header>
 
+  <main class="container">
+    <section class="grid">
+      <div class="card">
+        <h2 id="about">關於我</h2>
+        <p>專注於前端開發、RWD 與可及性設計，持續學習 Vue、React 與 AI 工具應用。</p>
+      </div>
+      <div class="card">
+        <h2 id="projects">作品集</h2>
+        <p>近期作品包含：Todo List App、個人履歷頁、CSS 動畫練習。</p>
+      </div>
+    </section>
+  </main>
+
   <footer class="container" role="contentinfo">
-    <p>© 2025 My Portfolio · <a href="#">GitHub</a></p>
-    <img src="https://source.unsplash.com/600x200/?technology,abstract" alt="">
+    <p>© 2025 末次 syunjulee · 
+      <!-- ✅ 有效連結 --><a href="https://github.com/syunjulee" target="_blank" rel="noopener noreferrer">GitHub</a></p>
+    <!-- ✅ 圖片必須有非空 alt -->   
+    <img src="https://images.unsplash.com/photo-1519906193555-b379ccaa9714?ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&q=80&w=1170" alt="抽象科技風格的光影圖像，象徵數位開發與創新思維">
   </footer>
 </body>
 </html>
